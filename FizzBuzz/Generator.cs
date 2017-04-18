@@ -8,7 +8,7 @@ namespace FizzBuzz
 {
     public class Generator
     {
-        IEnumerable<string> GetFuzBuzzOutput(int number)
+        public IEnumerable<string> GetFuzBuzzOutput(int number)
         {
             yield return "";
         }
