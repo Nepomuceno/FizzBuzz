@@ -12,7 +12,7 @@ namespace FizzBuzz
         {
             Console.WriteLine("Enter the bumber you want to print fizz buzz for:");
             var value = Console.ReadLine();
-            if (int.TryParse(value, out int number))
+            if (long.TryParse(value, out long number))
             {
                 Generator gen = new Generator();
                 var result = gen.GetFuzBuzzOutput(number);

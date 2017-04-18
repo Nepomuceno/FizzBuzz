@@ -8,11 +8,14 @@ namespace FizzBuzz
 {
     public class Generator
     {
-        public IEnumerable<string> GetFuzBuzzOutput(int number)
+        public IEnumerable<string> GetFuzBuzzOutput(long number)
         {
-            for (int i = 1; i <= number; i++)
+            if(number < 0)
             {
-
+                yield return "Only positive numbers accepted";
+            }
+            for (long i = 1; i <= number; i++)
+            {
                 if (i % 3 != 0 && i % 5 != 0)
                 {
                     yield return i.ToString();
