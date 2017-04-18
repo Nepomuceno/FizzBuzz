@@ -14,7 +14,7 @@ namespace FizzBuzz.Tests
             var result = new[] { "1", "2", "fizz", "4", "buzz", "fizz", "7", "8", "fizz", "buzz" };
             var generator = new Generator();
             var output = generator.GetFuzBuzzOutput(10);
-            output.ShouldBeSameAs(result);
+            output.ShouldBe(result, Case.Insensitive);
         }
     }
 }

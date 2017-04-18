@@ -10,7 +10,15 @@ namespace FizzBuzz
     {
         public IEnumerable<string> GetFuzBuzzOutput(int number)
         {
-            yield return "";
+            for (int i = 1; i <= number; i++)
+            {
+                if (i % 3 != 0 && i % 5 != 0)
+                    yield return i.ToString();
+                if (i % 3 == 0)
+                    yield return "fizz";
+                if (i % 5 == 0)
+                    yield return "buzz";
+            }
         }
     }
 }
