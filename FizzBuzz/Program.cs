@@ -15,12 +15,19 @@ namespace FizzBuzz
             if (long.TryParse(value, out long number))
             {
                 Generator gen = new Generator();
-                var result = gen.GetFuzBuzzOutput(number);
+                // Avoid multiple enumertions
+                var result = gen.GetFuzBuzzOutput(number).ToArray();
                 foreach (var output in result)
                 {
                     Console.Write($"{output} ");
                 }
                 Console.WriteLine();
+                Reporter rep = new Reporter();
+                var report = rep.GetReport(result);
+                foreach (var output in report)
+                {
+                    Console.WriteLine($"{output} ");
+                }
             } else
             {
                 Console.WriteLine("You did not type a valid number");
