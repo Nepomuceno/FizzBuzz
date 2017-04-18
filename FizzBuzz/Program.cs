@@ -26,7 +26,7 @@ namespace FizzBuzz
                 var report = rep.GetReport(result);
                 foreach (var output in report)
                 {
-                    Console.WriteLine($"{output} ");
+                    Console.WriteLine(output.Value);
                 }
             } else
             {

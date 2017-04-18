@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
 
@@ -8,6 +9,23 @@ namespace FizzBuzz.Tests
     public class ReporterTest
     {
         [TestMethod]
+        public void ReportFor0Occurency()
+        {
+            var entry = new[] {
+                "1", "2", "lucky"};
+            var expected = new Dictionary<string, string>()
+            {
+                {"fizz", "fizz: 0" },
+                {"buzz", "buzz: 0" },
+                {"fizzbuzz", "fizzbuzz: 0" },
+                {"lucky", "lucky: 1" },
+                {"an integer", "an integer: 2" }
+            };
+            var reporter = new Reporter();
+            var output = reporter.GetReport(entry);
+            output.ShouldBe(expected);
+        }
+        [TestMethod]
         public void Basic20Report()
         {
             var entry = new[] {
@@ -15,7 +33,14 @@ namespace FizzBuzz.Tests
                 "fizz", "7", "8", "fizz", "buzz",
                 "11", "fizz", "lucky", "14", "fizzbuzz",
                 "16", "17", "fizz", "19", "buzz"};
-            var expected = new[]{ "10 an integer", "2 lucky", "3 buzz", "4 fizz", "1 fizzbuzz" };
+            var expected = new Dictionary<string, string>()
+            {
+                {"fizz", "fizz: 4" },
+                {"buzz", "buzz: 3" },
+                {"fizzbuzz", "fizzbuzz: 1" },
+                {"lucky", "lucky: 2" },
+                {"an integer", "an integer: 10" }
+            };
             var reporter = new Reporter();
             var output = reporter.GetReport(entry);
             output.ShouldBe(expected);
@@ -33,7 +58,14 @@ namespace FizzBuzz.Tests
                 "26", "fizz", "28", "29", "lucky",
                 "lucky", "lucky", "lucky", "lucky", "lucky",
                 "lucky", "lucky", "lucky", "lucky", "buzz"};
-            var expected = new[] { "14 an integer", "13 lucky", "5 buzz", "7 fizz", "1 fizzbuzz" };
+            var expected = new Dictionary<string, string>()
+            {
+                {"fizz", "fizz: 7" },
+                {"buzz", "buzz: 5" },
+                {"fizzbuzz", "fizzbuzz: 1" },
+                {"lucky", "lucky: 13" },
+                {"an integer", "an integer: 14" }
+            };
             var reporter = new Reporter();
             var output = reporter.GetReport(entry);
             output.ShouldBe(expected);
