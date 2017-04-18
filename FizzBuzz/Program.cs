@@ -10,7 +10,7 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the bumber you want to print fizz buzz for:");
+            Console.Write("Enter the bumber you want to print fizz buzz for:");
             var value = Console.ReadLine();
             if (long.TryParse(value, out long number))
             {

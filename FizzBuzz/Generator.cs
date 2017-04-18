@@ -16,18 +16,26 @@ namespace FizzBuzz
             }
             for (long i = 1; i <= number; i++)
             {
-                if (i % 3 != 0 && i % 5 != 0)
+                if (i.ToString().Contains('3'))
                 {
-                    yield return i.ToString();
+                    yield return "lucky";
                 } else
                 {
-                    string response = string.Empty;
-                    if (i % 3 == 0)
-                        response += "fizz";
-                    if (i % 5 == 0)
-                        response += "buzz";
-                    yield return response;
+                    if (i % 3 != 0 && i % 5 != 0)
+                    {
+                        yield return i.ToString();
+                    }
+                    else
+                    {
+                        string response = string.Empty;
+                        if (i % 3 == 0)
+                            response += "fizz";
+                        if (i % 5 == 0)
+                            response += "buzz";
+                        yield return response;
+                    }
                 }
+                
                 
             }
         }

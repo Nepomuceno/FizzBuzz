@@ -27,7 +27,10 @@ namespace FizzBuzz.Tests
         [TestMethod]
         public void GetFirst10Numbers()
         {
-            var expected = new[] { "1", "2", "fizz", "4", "buzz", "fizz", "7", "8", "fizz", "buzz" };
+            var expected = new[] {
+                "1", "2", "lucky", "4", "buzz",
+                "fizz", "7", "8", "fizz", "buzz"
+            };
             var generator = new Generator();
             var output = generator.GetFuzBuzzOutput(10);
             output.ShouldBe(expected, Case.Insensitive);
@@ -35,9 +38,29 @@ namespace FizzBuzz.Tests
         [TestMethod]
         public void GetFirst20Numbers()
         {
-            var expected = new[] { "1", "2", "fizz", "4", "buzz", "fizz", "7", "8", "fizz", "buzz", "11", "fizz", "13", "14", "fizzbuzz", "16", "17", "fizz", "19", "buzz" };
+            var expected = new[] {
+                "1", "2", "lucky", "4", "buzz",
+                "fizz", "7", "8", "fizz", "buzz",
+                "11", "fizz", "lucky", "14", "fizzbuzz",
+                "16", "17", "fizz", "19", "buzz"};
             var generator = new Generator();
             var output = generator.GetFuzBuzzOutput(20);
+            output.ShouldBe(expected, Case.Insensitive);
+        }
+        [TestMethod]
+        public void GetFirst40Numbers()
+        {
+            var expected = new[] {
+                "1", "2", "lucky", "4", "buzz",
+                "fizz", "7", "8", "fizz", "buzz",
+                "11", "fizz", "lucky", "14", "fizzbuzz",
+                "16", "17", "fizz", "19", "buzz",
+                "fizz", "22", "lucky", "fizz", "buzz",
+                "26", "fizz", "28", "29", "lucky",
+                "lucky", "lucky", "lucky", "lucky", "lucky",
+                "lucky", "lucky", "lucky", "lucky", "buzz"};
+            var generator = new Generator();
+            var output = generator.GetFuzBuzzOutput(40);
             output.ShouldBe(expected, Case.Insensitive);
         }
     }
